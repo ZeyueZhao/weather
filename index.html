@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="weather.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入 Chart.js -->
+</head>
+<body>
+  <div class="container">
+    <h1>Weather App</h1>
+    
+    <!-- 输入位置、GPS获取位置、收藏位置 -->
+    <div class="location-input">
+      <input type="text" id="location" placeholder="Enter a location">
+      <button id="searchWeather">Search Weather</button>
+      <button id="getLocationWeather">Use My Location</button>
+      <button id="favorite-button">Add to Favorites</button>
+    </div>
+    
+    <!-- 温度单位切换 -->
+    <div class="unit-switch">
+      <label>
+        <input type="radio" name="unit" value="metric" checked> Celsius
+      </label>
+      <label>
+        <input type="radio" name="unit" value="imperial"> Fahrenheit
+      </label>
+      <label>
+        <input type="radio" name="unit" value="kelvin"> Kelvin
+      </label>
+    </div>
+
+    <!-- 天气显示区域 -->
+    <div id="weather-display">
+    </div>
+
+
+    <!-- 图表显示 -->
+    <span style="display: none;" id="hour">24-Hour</span>
+      <canvas id="weatherChart"></canvas>
+    <span style="display: none;" id="day">7-days</span>
+    <canvas id="weatherChart2"></canvas>
+    <div id="infoContainer" style="display: flex;justify-content: space-between;margin-top: 20px;">
+      <div style="display: flex;flex-direction: column;">
+        <span style="display: none;" id="hours">24-Hours</span>
+        <div id="hourInfo"></div>
+      </div>
+      <div style="display: flex;flex-direction: column;">
+        <span style="display: none;" id="days">7-Days</span>
+        <div id="dayInfo"></div>
+      </div>
+    </div>
+
+    <!-- 收藏位置显示 -->
+    <div id="favorites-section">
+      <h3>Favorites</h3>
+      <ul id="favorites-list"></ul>
+    </div>
+
+    <div id="loading" style="display:none;">Loading...</div>
+  </div>
+
+  <script src="weather.js"></script>
+</body>
+</html>
